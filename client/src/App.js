@@ -1,23 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import axios from "axios";
+import Header from "./pages/Header/Header";
+import Customers from "./pages/Customers/Customers";
+import Customer from "./pages/Customer/Customer";
+import Rotate from "./components/Rotate"
+import Logo from "./components/Logo"
+import "./App.css";
 
 function App() {
+  const [users, setUsers] = useState([]);
+  const [orientation, setOrientation] = useState(
+    window.screen.orientation.type
+  );
+
+  const getUsers = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:3001/users");
+      setUsers(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getUsers();
+  });
+
+  useEffect(() => {
+    const handleOrientationChange = () =>
+      setOrientation(window.screen.orientation.type);
+    window.addEventListener("orientationchange", handleOrientationChange);
+    return () =>
+      window.removeEventListener("orientationchange", handleOrientationChange);
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Logo/>
+      {orientation === "portrait-primary" ? (
+        <Rotate />
+        ) : (
+          <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Header users={users} />} />
+            <Route path="/customers" element={<Customers users={users} />} />
+            <Route path="/customer/:id" element={<Customer />} />
+          </Routes>
+        </BrowserRouter>
+      )}
     </div>
   );
 }
