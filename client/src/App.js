@@ -4,8 +4,7 @@ import axios from "axios";
 import Header from "./pages/Header/Header";
 import Customers from "./pages/Customers/Customers";
 import Customer from "./pages/Customer/Customer";
-import Rotate from "./components/Rotate"
-import Logo from "./components/Logo"
+import PhoneRotate from "./components/PhoneRotate/PhoneRotate";
 import "./App.css";
 
 function App() {
@@ -37,9 +36,8 @@ function App() {
 
   return (
     <div className="App">
-      <Logo/>
       {orientation === "portrait-primary" ? (
-        <Rotate />
+        <PhoneRotate />
         ) : (
           <BrowserRouter>
           <Routes>
