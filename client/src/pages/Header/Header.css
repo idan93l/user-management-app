@@ -1,0 +1,28 @@
+.Header {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: whitesmoke;
+}
+
+.container {
+  height: 64%;
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(67, 173, 194, 0.133);
+  border-radius: 100px;
+}
+
+.head {
+  font-size: 14vh;
+}
+
+.subHead {
+  font-size: 12vh;
+}
