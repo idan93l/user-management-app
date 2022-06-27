@@ -3,6 +3,26 @@
 
 User Management app based on existing data
 
+## Tech Used
+
+ReactJS, NodeJS, Express, MongoDB, Mongoose, MaterialUI, Styled-Components, Axios, React-Router-Dom, HTML, CSS, VanillaJS.
+## Screenshots
+
+Home Page - /header
+
+![App Screenshot](https://i.postimg.cc/Dfd2BZQd/Header.png)
+
+
+Customers Table - /customers
+
+![App Screenshot](https://i.postimg.cc/d1WKc75z/customers.png)
+
+
+Customer Page - /customer/:id
+
+![App Screenshot](https://i.postimg.cc/RZ0s2PkV/customer.png)
+
+
 ## API Reference
 
 #### Get all users
@@ -18,19 +38,11 @@ User Management app based on existing data
   GET /:id
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
-
 #### Find user and update "isActive" field
 
 ```http
   post /:id
 ```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
 
 
 ## Run Locally
@@ -64,19 +76,3 @@ Start the client
 ```bash
   npm start
 ```
-## Screenshots
-
-Home Page - /header
-
-![App Screenshot](https://i.postimg.cc/Dfd2BZQd/Header.png)
-
-
-Customers Table - /customers
-
-![App Screenshot](https://i.postimg.cc/d1WKc75z/customers.png)
-
-
-Customer Page - /customer/:id
-
-![App Screenshot](https://i.postimg.cc/RZ0s2PkV/customer.png)
-
